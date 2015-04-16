@@ -48,6 +48,19 @@ public class Client {
 			clientController.returnItem(item); 
 	}
 	
+	private void addItem()
+	{
+		System.out.println("Enter 1 if the item is a book, "
+				+ "\n 2 if the item is an article, "
+				+ "\n 3 if the item is a cd,"
+				+ "\n 4 if the item is a dvd."); 
+		System.out.println("Enter the title: "); 
+		String title = in.nextLine(); 
+		System.out.println("Enter the author: "); 
+		String author = in.nextLine(); 
+		System.out.println("Enter the title: "); 
+	}
+	
 	private Object searchItem()
 	{
 		System.out.println("Which item do you want to lend out?"); 
