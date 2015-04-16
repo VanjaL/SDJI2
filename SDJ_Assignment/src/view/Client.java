@@ -23,10 +23,14 @@ public class Client {
 				+ "\n 3) Add a new item");  
 		
 		int choice = in.nextInt(); 
+		
 		switch(choice){
 		case 1: lendItem(); 
-		case 2: returnItem(); 
-		case 3: addItem(); 
+				break;
+		case 2: returnItem();
+				break;
+		case 3: addItem();
+				break; 
 		}
 	}
 	
@@ -54,11 +58,19 @@ public class Client {
 				+ "\n 2 if the item is an article, "
 				+ "\n 3 if the item is a cd,"
 				+ "\n 4 if the item is a dvd."); 
-		System.out.println("Enter the title: "); 
-		String title = in.nextLine(); 
-		System.out.println("Enter the author: "); 
-		String author = in.nextLine(); 
-		System.out.println("Enter the title: "); 
+		
+		int choice = in.nextInt(); 
+		
+		switch(choice){
+		case 1: addBook(); 
+				break; 
+		case 2: addArticle();
+				break; 
+		case 3: addCd();
+				break; 
+		case 4: addDvd();
+				break;}
+		
 	}
 	
 	private Object searchItem()
@@ -81,8 +93,48 @@ public class Client {
 		
 	}
 	
+	private void addBook()
+	{
+		System.out.println("Enter the title: "); 
+		String title = in.nextLine(); 
+		System.out.println("Enter the author: "); 
+		String author = in.nextLine(); 
+		System.out.println("Enter the ISBN: ");
+		String isbn = in.nextLine();
+		
+		clientController.addBook(title, author, isbn); 
+	}
 	
+	private void addArticle()
+	{
+		System.out.println("Enter the title: "); 
+		String title = in.nextLine(); 
+		System.out.println("Enter the author: "); 
+		String author = in.nextLine(); 
+		System.out.println("Enter the ISBN: ");
+		String isbn = in.nextLine();
+		
+		clientController.addArticle(title, author, isbn); 
+	}
 	
+	private void addDvd()
+	{
+		System.out.println("Enter the title: "); 
+		String title = in.nextLine(); 
+		System.out.println("Enter the author: "); 
+		String author = in.nextLine();
+		
+		clientController.addDvd(title, author); 
+	}
 	
+	private void addCd()
+	{
+		System.out.println("Enter the title: "); 
+		String title = in.nextLine(); 
+		System.out.println("Enter the author: "); 
+		String author = in.nextLine();
+		
+		clientController.addCd(title, author); 
+	}
 
 }

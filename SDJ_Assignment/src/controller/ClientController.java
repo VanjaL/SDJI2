@@ -21,4 +21,24 @@ public class ClientController {
 	{
 		
 	}
+	
+	public void addBook(String title, String author, String isbn)
+	{
+		
+	}
+	
+	public void addArticle(String title, String author, String isbn)
+	{
+		
+	}
+	
+	public void addCd(String title, String author)
+	{
+		
+	}
+	
+	public void addDvd(String title, String author)
+	{
+		
+	}
 }
