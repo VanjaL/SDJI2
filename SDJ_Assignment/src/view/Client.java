@@ -17,10 +17,10 @@ public class Client {
 	private void showOptions()
 	{
 		System.out.println("Welcome to the Fairytale library system!"
-				+ "What do you want to do next?"
-				+ "1) Lend an item"
-				+ "2) Return an item"
-				+ "3) Add a new item");  
+				+ "\n What do you want to do next?"
+				+ "\n 1) Lend an item"
+				+ "\n 2) Return an item"
+				+ "\n 3) Add a new item");  
 		
 		int choice = in.nextInt(); 
 		switch(choice){
@@ -32,21 +32,44 @@ public class Client {
 	
 	private void lendItem()
 	{
-		System.out.println("Which item do you want to lend out?"); 
-		String item = in.nextLine();  
-		searchItem(item); 
+		Object item = searchItem();
+		if (item == null)
+			showOptions(); 
+		else
+			clientController.lendItem(item); 
 	}
 	
 	private void returnItem()
 	{
-		System.out.println("Which item do you want to return?"); 
-		String item = in.nextLine();
-		searchItem(item);
+		Object item = searchItem();
+		if (item == null)
+			showOptions(); 
+		else
+			clientController.returnItem(item); 
 	}
 	
-	private void returnItem(Object item)
+	private Object searchItem()
 	{
-		clientController.returnItem(item); 
+		System.out.println("Which item do you want to lend out?"); 
+		String query = in.nextLine();  
+		Object item = clientController.searchItem(query); 
+		
+		System.out.println("Is this the item you want to lend out?: "
+				+ "\n "  + item.toString()
+				+ "\n press y for yes and n for no.");
+		
+		String choice = in.nextLine(); 
+		switch(choice){
+		case "y": return item; 
+		case "n": return null;  
+		}
+		
+		return null; 
+		
 	}
+	
+	
+	
+	
 
 }

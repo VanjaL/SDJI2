@@ -7,7 +7,17 @@ public class ClientController {
 		
 	}
 	
-	public void searchItem(Object item)
+	public Object searchItem(String item)
+	{
+		return null; 
+	}
+	
+	public void lendItem(Object item)
+	{
+		
+	}
+	
+	public void returnItem(Object item)
 	{
 		
 	}
