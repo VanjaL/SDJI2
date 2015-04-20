@@ -1,5 +1,7 @@
 package domain.model;
 
+import java.util.ArrayList;
+
 public interface ListADT<T> {
 	public void add(int index, T element);
 	public void add(T element);
@@ -12,6 +14,8 @@ public interface ListADT<T> {
 	
 	public int indexOf(T element);
 	public boolean contains(T element);
+	
+	public ArrayList<T> toArray();
 	
 	public boolean isEmpty();
 	public int size();

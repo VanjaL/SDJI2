@@ -1,5 +1,9 @@
 package domain.model;
 
+import java.util.ArrayList;
+
+import org.omg.CORBA.Current;
+
 public class LinkedList<T> implements ListADT<T>
 {
 	private int count;
@@ -142,6 +146,18 @@ public class LinkedList<T> implements ListADT<T>
 	public int size()
 	{
 		return count;
+	}
+	
+	public ArrayList<T> toArray()
+	{
+		LinearNode<T> current = front;
+		ArrayList<T> list = new ArrayList<T>();
+		while(current.getNext() != null)
+		{	
+			current = current.getNext(); 
+			list.add(current.getElement());
+		}
+		return list;
 	}
 
 	@Override
