@@ -1,20 +1,27 @@
 package controller;
 
-public class ClientController {
+import view.Client;
+import domain.mediator.ClientModelManager;
 
-	public ClientController()
+public class ClientController {
+	
+	private ClientModelManager manager; 
+	private Client clientView; 
+
+	public ClientController(ClientModelManager manager, Client clientView)
 	{
-		
+		this.manager = manager;
+		this.clientView = clientView; 
 	}
 	
 	public Object searchItem(String item)
 	{
-		return null; 
+		return manager.searchItem(item);  
 	}
 	
 	public void lendItem(Object item)
 	{
-		
+		manager.lendItem(item);
 	}
 	
 	public void returnItem(Object item)
