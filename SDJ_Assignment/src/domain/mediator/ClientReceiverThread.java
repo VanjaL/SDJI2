@@ -13,6 +13,10 @@ public class ClientReceiverThread extends Thread{
 		this.manager = manager; 
 	}
 	
+	public String search()
+	{
+		return manager.search(); 
+	}
 	
 
 }

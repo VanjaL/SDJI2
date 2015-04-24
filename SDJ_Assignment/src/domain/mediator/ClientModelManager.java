@@ -3,6 +3,7 @@ package domain.mediator;
 public class ClientModelManager implements ModelInterface{
 	
 	private Proxy proxy; 
+	private String itemName; 
 	
 	public ClientModelManager()
 	{
@@ -15,9 +16,14 @@ public class ClientModelManager implements ModelInterface{
 		
 	}
 	
-	public Object searchItem(String item)
+	public void getItemName(String item)
 	{
-		return null;
+		itemName = item; 
+	}
+	
+	public String search()
+	{
+		return "search: " + itemName; 
 	}
 	
 	public void lendItem(Object item)
