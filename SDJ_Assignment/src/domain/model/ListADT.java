@@ -2,7 +2,8 @@ package domain.model;
 
 import java.util.ArrayList;
 
-public interface ListADT<T> {
+public interface ListADT<T> 
+{
 	public void add(int index, T element);
 	public void add(T element);
 	
