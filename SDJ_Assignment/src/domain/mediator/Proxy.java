@@ -47,6 +47,8 @@ public class Proxy extends ClientReceiverThread implements ModelInterface {
 		}
 		
 		System.out.println("Server response: " + serverResponse);
+		
+		this.start();
 	}
 
 
