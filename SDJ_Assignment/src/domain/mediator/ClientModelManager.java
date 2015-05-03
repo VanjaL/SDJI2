@@ -11,7 +11,8 @@ public class ClientModelManager implements ModelInterface{
 	}
 
 	@Override
-	public void add(AbstractMessage message) {
+	public void add(AbstractMessage message) 
+	{
 		// TODO Auto-generated method stub
 		
 	}

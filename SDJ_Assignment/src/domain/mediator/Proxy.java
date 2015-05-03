@@ -53,7 +53,8 @@ public class Proxy extends ClientReceiverThread implements ModelInterface {
 
 
 	@Override
-	public void add(AbstractMessage message) {
+	public void add(AbstractMessage message)
+	{
 		// TODO Auto-generated method stub
 		
 	}
