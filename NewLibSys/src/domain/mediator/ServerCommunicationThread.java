@@ -7,9 +7,6 @@ import java.net.Socket;
 
 
 
-
-
-
 public class ServerCommunicationThread extends Thread
 {
 	PrintWriter pwPrintWriter;
