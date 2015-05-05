@@ -26,10 +26,10 @@ public class DVD extends Item
 	 * @param date
 	 * @param isOldDate
 	 */
-	public DVD(String title, int status, String artist)
+	public DVD(String title, String artist)
 	{
 		
-		super(title, status);
+		super(title);
 		this.artist = artist;
 	
 	}

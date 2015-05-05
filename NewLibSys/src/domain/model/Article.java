@@ -24,10 +24,10 @@ public class Article extends Item
 	 * @param magazine
 	 * @param date
 	 */
-	public Article(String title, int status, String author, String magazine)
+	public Article(String title, String author, String magazine)
 	{
 	
-		super(title, status);
+		super(title);
 		this.author = author;
 		this.magazine = magazine;
 		

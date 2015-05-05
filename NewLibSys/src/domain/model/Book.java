@@ -24,11 +24,10 @@ public class Book extends Item
 	 * @param isbn
 	 * 
 	 */
-	public Book(String title, int status, String author, String isbn)
+	public Book(String title, String author, String isbn)
 	{
 	
-	
-		super(title, status);
+		super(title);
 		this.author = author;
 		this.isbn = isbn;
 		

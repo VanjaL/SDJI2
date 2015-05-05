@@ -9,23 +9,42 @@ import java.io.Serializable;
     */ 
 public abstract class Item  implements Serializable
 {
-   
-	      
-
-	       private String title;
-	       private int status;
+		private String title;
 	       private String StatusToString;
+	       
+	       /**For the state pattern */
+	       
+	       private State lendOutState; 
+	       private AvailableState availableState;
+	       private State state;
+	        
+	       
 	       /**
 	           * Constructor for abstract item class initializes the fields title and
 	           * status. 
 	           * @param title
 	           * @param status
 	           */
-	       public Item(String title, int status)
+	       public Item(String title)
 	       {
 	         
 	          this.title = title;
-	          this.status = status;
+	          
+	     
+	          lendOutState = new LendOutState(this); 
+	          availableState = new AvailableState(this); 
+	          this.state = availableState; 
+	          
+	       }
+	       
+	       public void lendItem(String name, String email)
+	       {
+	    	   state.lendOut(name, email);
+	       }
+	       
+	       public void returnItem()
+	       {
+	    	   state.returnItem();
 	       }
 
 	       public String getTitle()
@@ -38,6 +57,16 @@ public abstract class Item  implements Serializable
 	        
 	          this.title = title;
 	       }
+	       
+	       public State getAvailableState()
+	       {
+	    	   return availableState; 
+	       }
+	       
+	       public State getLendoutState(String name, String email)
+	       {
+	    	   return lendOutState;
+	       }
 	       /**
     	    * This method translates the get status integer to 
     	    * a string which is the use in toString method
@@ -45,32 +74,27 @@ public abstract class Item  implements Serializable
     	    */
 	       public String getStatusToString()
 	       {
-	    	  
-	       
-	    	   if (status == 1)
-		          {
-		        	  return " item is HOME";
-		          }
-		          if (status == 2)
-		          {
-		        	  return " item is LEND OUT";
-		          }
-		          if (status == 3)
-		          {
-		        	  return " item is RESERVED";
-		          }
-		        return " check item STATUS";
+    	     if (state.equals(lendOutState))
+	          {
+	        	  return " lent out. ";
+	          }
+	         if (state.equals(availableState))
+	          {
+	        	  return " available. ";
+	          }
+	          
+	        return "Check item STATUS ";
 	    	   
 	       }
-
-	       public int getStatus()
+	       
+	       public State getState()
 	       {
-	    	   return status;
+	    	   return state;
 	       }
 	       
-	       public void setStatus(int status)
+	       public void setState(State state)
 	       {
-	    	   this.status = status;
+	    	   this.state = state;
 	       }
 	       /**Overrides the object toString() and returns
     	    * this class' fields except the status is changed to a string.

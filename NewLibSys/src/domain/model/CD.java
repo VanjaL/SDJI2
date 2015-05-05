@@ -27,10 +27,10 @@ public class CD extends Item
 	 * @param date
 	 * @param isOldDate
 	 */
-	public CD(String title, int status, String artist)
+	public CD(String title, String artist)
 	{
 	
-		super(title, status);
+		super(title);
 		this.artist = artist;	
 		
 	}
